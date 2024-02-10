@@ -17,9 +17,10 @@ import { setuser } from "./app/slice/userSlice";
 import Cart from "./pages/Cart";
 import AddProduct from "./pages/AddProduct";
 import UpsertProduct from "./pages/UpsertProduct";
+import EditProduct from "./pages/EditProduct";
 
 export default function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -42,9 +43,10 @@ export default function App() {
         <Route path="services" element={<Service />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="cart"  element={<Cart/>}/>
-        <Route path="addproduct" element={<AddProduct/>}/>
-        <Route path="upsertproduct" element={<UpsertProduct/>}/>
+        <Route path="cart" element={<Cart />} />
+        <Route path="addproduct" element={<AddProduct />} />
+        <Route path="upsertproduct" element={<UpsertProduct />}></Route>
+        <Route path="upsertproduct/:slug" element={<EditProduct />} />
       </Routes>
       <Footer />
       <ToastContainer
