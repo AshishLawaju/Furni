@@ -1,0 +1,19 @@
+.thebg {
+  position: relative;
+}
+
+.thebg::after {
+  content: "";
+  position: absolute;
+  background-color: #dce5e4;
+  width: 100%;
+  height: 0;
+
+  bottom: 0;
+
+  transition: 0.3s;
+}
+
+.thebg:hover::after {
+  height: 60%;
+}
