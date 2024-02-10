@@ -10,6 +10,14 @@ import {
 import { upload } from "../middleware/multer.middleware.js";
 const router = express.Router();
 
+/* router
+  .route("/upload")
+  .post(upload.single("profileImage"), async (req, res) => {
+    console.log(req.file);
+    console.log(req.body);
+    res.json("single upload");
+  }); */
+
 router.route("/").post(
   /* upload.fields([
     {
@@ -17,8 +25,7 @@ router.route("/").post(
       maxCount: 1,
     },
   ]), */
-upload.single("profileImage")
-  ,
+  upload.single("profileImage"),
   addProduct
 );
 

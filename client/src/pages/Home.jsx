@@ -1,6 +1,5 @@
 import Crafted from "../components/common/Crafted";
 import Hero from "../components/common/Hero";
-import InfoCard from "../components/common/InfoCard";
 import WhyUs from "../components/common/WhyUs";
 import help1 from "../assets/help1.jpg";
 import help2 from "../assets/help2.jpg";

@@ -5,7 +5,7 @@ const addProduct = async (req, res, next) => {
   try {
     const { name, price, inStock, description, categories, brands } = req.body;
 
-    console.log({ "req.file": req.file });
+    console.log({ "req.files": req.file });
     console.log({ "req.body": req.body });
     // const imageLocalPath = req.files["profileImage"][0].path;
     const imageLocalPath = req.file.path;

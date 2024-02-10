@@ -19,19 +19,19 @@ export default function Shop() {
 
   return (
     <>
+      {" "}
+      <div className="bg-primary ">
+        <div className="container flex    h-[40vh] items-center text-xl text-white md:text-6xl">
+          Shop
+        </div>
+      </div>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <div className="bg-primary ">
-            <div className="container flex    h-[40vh] items-center text-xl text-white md:text-6xl">
-              Shop
-            </div>
-          </div>
-
           <div className=" container grid grid-cols-1 place-content-center place-items-center gap-12 pb-44 pt-24  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  ">
             {products?.map((product) => (
-              <ProductCart product={product} key={product._id}/>
+              <ProductCart product={product} key={product._id} />
             ))}
           </div>
         </>

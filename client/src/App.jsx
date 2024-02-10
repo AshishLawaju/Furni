@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { setuser } from "./app/slice/userSlice";
 import Cart from "./pages/Cart";
 import AddProduct from "./pages/AddProduct";
+import UpsertProduct from "./pages/UpsertProduct";
 
 export default function App() {
   const dispatch = useDispatch()
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="cart"  element={<Cart/>}/>
         <Route path="addproduct" element={<AddProduct/>}/>
+        <Route path="upsertproduct" element={<UpsertProduct/>}/>
       </Routes>
       <Footer />
       <ToastContainer
