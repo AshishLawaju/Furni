@@ -38,7 +38,9 @@ export default function AddProduct() {
     formData.append("inStock", newProduct.inStock);
 
     setIsSubmitting(true);
-
+    let token = localStorage.getItem("token");
+    
+    
     axios
       .post(
         "http://localhost:8000/api/v1/product/",
@@ -50,6 +52,7 @@ export default function AddProduct() {
 
             "Content-Type": "multipart/form-data",
             enctype: "multipart/form-data",
+            Authorization: token,
           },
         },
       )

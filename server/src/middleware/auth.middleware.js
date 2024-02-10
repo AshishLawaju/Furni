@@ -8,10 +8,12 @@ const auth = async (req, res, next) => {
     if (!token) {
       res.status(401).json("unAuthorization req no token");
     }
-    const decodedToken = jwt.verify(token, "shhh");
+    const decodedToken = jwt.verify(token, "shhhhh");
     const user = await User.findById(decodedToken?._id).select("-password");
     next();
   } catch (error) {
     next(error);
   }
 };
+
+export { auth };

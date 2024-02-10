@@ -29,9 +29,13 @@ export default function EditProduct() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    let token = localStorage.getItem("token");
     axios
-      .put(`http://localhost:8000/api/v1/product/${slug}`, newProduct)
+      .put(`http://localhost:8000/api/v1/product/${slug}`, newProduct, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then(() => toast.success("updates"))
       .catch((err) => toast("not updated"));
   }

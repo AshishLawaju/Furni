@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 export default function UpsertProduct() {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     try {
       axios
@@ -15,7 +17,7 @@ export default function UpsertProduct() {
     } catch (error) {
       console.log(error);
     }
-  }, [products]);
+  }, []);
 
   return (
     <div className="bg-back">
@@ -53,9 +55,15 @@ export default function UpsertProduct() {
                     onClick={() => {
                       let confirmS = confirm("Do you want to delect ?");
                       if (confirmS) {
+                        let token = localStorage.getItem("token");
                         axios
                           .delete(
                             `http://localhost:8000/api/v1/product/${product._id}`,
+                            {
+                              headers: {
+                                Authorization: token,
+                              },
+                            },
                           )
                           .then(() => toast.success("delect success"))
                           .catch(() => {

@@ -3,7 +3,9 @@ import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 import productRouter from "./routes/product.routes.js";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 const app = express();
+app.use(cookieParser())
 app.use(
   cors({
     origin: "*",

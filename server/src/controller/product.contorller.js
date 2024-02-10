@@ -1,8 +1,19 @@
 import { Product } from "../models/product.model.js";
+import { User } from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/Cloudinary.js";
-
+import jwt from "jsonwebtoken";
 const addProduct = async (req, res, next) => {
   try {
+    const token = req.header("Authorization");
+    const decodedToken = jwt.verify(token, "shhhhh");
+    const user = await User.findById(decodedToken?.id).select("-password");
+
+    /*  console.log({ decodedToken });
+    console.log({ user }); */
+
+    if (!user.isAdmin) {
+      return res.status(403).json("only the admin can add");
+    }
     const { name, price, inStock, description, categories, brands } = req.body;
 
     console.log({ "req.files": req.file });
@@ -57,6 +68,18 @@ const getSingleProduct = async (req, res, next) => {
 
 const updateProduct = async (req, res, next) => {
   try {
+
+    const token = req.header("Authorization");
+    const decodedToken = jwt.verify(token, "shhhhh");
+    const user = await User.findById(decodedToken?.id).select("-password");
+
+    /*  console.log({ decodedToken });
+    console.log({ user }); */
+
+    if (!user.isAdmin) {
+      return res.status(403).json("only the admin can add");
+    }
+
     const { name, price, inStock, description } = req.body;
     const product = await Product.findByIdAndUpdate(req.params, {
       name,
@@ -74,6 +97,17 @@ const updateProduct = async (req, res, next) => {
 };
 const delectProduct = async (req, res, next) => {
   try {
+
+    const token = req.header("Authorization");
+    const decodedToken = jwt.verify(token, "shhhhh");
+    const user = await User.findById(decodedToken?.id).select("-password");
+
+    /*  console.log({ decodedToken });
+    console.log({ user }); */
+
+    if (!user.isAdmin) {
+      return res.status(403).json("only the admin can add");
+    }
     const product = await Product.findByIdAndDelete(req.params);
     if (!product) {
       res.status(400).json("no product found");

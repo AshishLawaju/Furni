@@ -8,6 +8,7 @@ import {
   updateProduct,
 } from "../controller/product.contorller.js";
 import { upload } from "../middleware/multer.middleware.js";
+import { auth } from "../middleware/auth.middleware.js";
 const router = express.Router();
 
 /* router
@@ -25,6 +26,7 @@ router.route("/").post(
       maxCount: 1,
     },
   ]), */
+  auth,
   upload.single("profileImage"),
   addProduct
 );
