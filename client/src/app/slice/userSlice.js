@@ -9,6 +9,7 @@ export const userSlice = createSlice({
     setuser: (state, payload) => {
       state.value = {
         name: payload.payload,
+        
       };
     },
     logout: (state) => {

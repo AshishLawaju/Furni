@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, removeItem } from "../app/slice/cartSlice";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 export default function Cart() {
   // localStorage.getItem("cartItem")
   const cart = useSelector((store) => store.cart.value);
@@ -68,7 +69,15 @@ export default function Cart() {
             </tbody>
           </table>
 
-          <div>total : {total}</div>
+          <div className="mt-8 flex flex-col  gap-3">
+            <span className="text-xl font-semibold">Total : ${total}</span>
+            <Link
+              to={"checkout"}
+              className="btn max-w-[240px] bg-black text-white"
+            >
+              Proceed To Checkout
+            </Link>
+          </div>
         </div>
       </div>
     </>

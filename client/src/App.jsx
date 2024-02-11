@@ -18,6 +18,9 @@ import Cart from "./pages/Cart";
 import AddProduct from "./pages/AddProduct";
 import UpsertProduct from "./pages/UpsertProduct";
 import EditProduct from "./pages/EditProduct";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { addToCart, setCartRedux } from "./app/slice/cartSlice";
+import CheckOut from "./pages/CheckOut";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -31,6 +34,11 @@ export default function App() {
         .then((res) => dispatch(setuser(res.data.name)))
         .catch((err) => console.log(err));
     }
+
+    const cartItem = localStorage.getItem("cartItem");
+    if (cartItem) {
+      dispatch(setCartRedux(JSON.parse(cartItem)));
+    }
   });
   return (
     <>
@@ -43,9 +51,17 @@ export default function App() {
         <Route path="services" element={<Service />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="addproduct" element={<AddProduct />} />
-        <Route path="upsertproduct" element={<UpsertProduct />}></Route>
+        <Route path="cart">
+          <Route path="" element={<Cart />} />
+          <Route path="checkout" element={<CheckOut />} />
+        </Route>
+
+        <Route path="" element={<ProtectedRoute />}>
+          <Route path="addproduct" element={<AddProduct />} />
+        </Route>
+        <Route path="" element={<ProtectedRoute />}>
+          <Route path="upsertproduct" element={<UpsertProduct />}></Route>
+        </Route>
         <Route path="upsertproduct/:slug" element={<EditProduct />} />
       </Routes>
       <Footer />

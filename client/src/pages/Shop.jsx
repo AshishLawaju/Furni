@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ProductCart from "../components/common/ProductCart";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import ProtectedComponent from "../components/ProtectedComponent";
 export default function Shop() {
   const [products, setProducts] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +25,13 @@ export default function Shop() {
       <div className="bg-primary ">
         <div className="container flex    h-[40vh] items-center text-xl text-white md:text-6xl">
           Shop
+        </div>
+
+        <div className="container flex gap-4 pb-4 font-sans text-white">
+          <ProtectedComponent>
+            <Link to={"/addproduct"}> Add product</Link>
+            <Link to={"/upsertProduct"}>Check Product</Link>
+          </ProtectedComponent>
         </div>
       </div>
       {isLoading ? (

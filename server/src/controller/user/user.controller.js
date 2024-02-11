@@ -36,9 +36,11 @@ const loginController = async (req, res, next) => {
       let pass = await bcrypt.compare(password, checkUser.password);
       if (pass) {
         let token = checkUser.generateAccessToken();
-        return res
-          .status(200)
-          .json({ token: token, id: checkUser._id, name: checkUser.username });
+        return res.status(200).json({
+          token: token,
+          name: checkUser.username,
+          isAdmin: checkUser.isAdmin,
+        });
       }
     }
     res.status(400).json("invalid credientials");
@@ -51,12 +53,11 @@ const userController = async (req, res, next) => {
   try {
     const authorization = req.headers.authorization;
     const user = jwt.verify(authorization, "shhhhh");
- 
 
     if (!user) {
       res.status(403).json("no token !");
     }
-  /*   const users = await User.find();
+    /*   const users = await User.find();
     if (!users) {
       res.status(500).json("no user found");
     } */

@@ -6,6 +6,11 @@ export const cartSlice = createSlice({
     value: [],
   },
   reducers: {
+
+    setCartRedux :(state,action)=>{
+      state.value = action.payload
+    },
+
     addToCart: (state, action) => {
       let product = action.payload;
 
@@ -23,9 +28,9 @@ export const cartSlice = createSlice({
       }
 
       state.value = temp;
-      console.log(state.value);
 
       alert("Add to cart");
+      localStorage.setItem("cartItem", JSON.stringify(state.value));
     },
 
     increment: (state, action) => {
@@ -39,6 +44,8 @@ export const cartSlice = createSlice({
       });
 
       state.value = temp;
+      localStorage.setItem("cartItem", JSON.stringify(state.value));
+
     },
     decrement: (state, action) => {
       let temp = [...state.value];
@@ -51,6 +58,8 @@ export const cartSlice = createSlice({
       });
 
       state.value = temp;
+      localStorage.setItem("cartItem", JSON.stringify(state.value));
+
     },
 
     removeItem: (state, action) => {
@@ -63,10 +72,12 @@ export const cartSlice = createSlice({
       });
 
       state.value = temp;
+      localStorage.setItem("cartItem", JSON.stringify(state.value));
+
     },
   },
 });
 
-export const { addToCart, increment, decrement, removeItem } =
+export const { addToCart, increment, decrement, removeItem,setCartRedux } =
   cartSlice.actions;
 export default cartSlice.reducer;

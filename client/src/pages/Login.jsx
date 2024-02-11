@@ -22,7 +22,7 @@ export default function Login() {
       .then((res) => {
         toast("login success!");
         localStorage.setItem("token", res.data.token);
-        dispatch(setReduxUser(res.data.name));
+        dispatch(setReduxUser(res.data));
         setUser({
           email: "",
           password: "",
