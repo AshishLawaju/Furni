@@ -24,6 +24,7 @@ import CheckOut from "./pages/CheckOut";
 import Thankyou from "./pages/Thankyou";
 import CheckOrders from "./pages/CheckOrders";
 import Blog from "./pages/Blog";
+import SingleProduct from "./pages/SingleProduct";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ export default function App() {
             <Route path="checkout" element={<CheckOut />} />
           </Route>
         </Route>
-
+<Route path="product/:slug" element={<SingleProduct/>}></Route>
         <Route path="" element={<ProtectedRoute />}>
           <Route path="thankyou" element={<Thankyou />}></Route>
           <Route path="addproduct" element={<AddProduct />} />
