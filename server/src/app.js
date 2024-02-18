@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 import productRouter from "./routes/product.routes.js";
+import orderRouter from "./routes/order.routes.js";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+
 const app = express();
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(
   cors({
     origin: "*",
@@ -17,6 +19,7 @@ app.use(express.json({ limit: "16kb" }));
 // app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/product", productRouter);
+app.use("/api/v1/order", orderRouter);
 app.use("*", (req, res) => res.json("url not found"));
 app.use((err, req, res, next) => {
   res.json({ msg: err.message });

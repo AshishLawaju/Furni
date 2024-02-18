@@ -10,7 +10,7 @@ export default function ProductCart({ product }) {
     <div className="">
       <div className="thebg group  flex  max-w-[350px] cursor-pointer flex-col items-center  gap-2    ">
         <div className="z-40 transition-all duration-300 group-hover:-translate-y-6  ">
-          <img src={product?.image} alt="product" />
+          <img src={product?.image} alt="product" className="h-[330px]" />
         </div>
         <p className="z-40">{product?.name}</p>
         <p className="z-40 text-2xl font-bold">${product?.price}</p>

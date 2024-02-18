@@ -31,6 +31,7 @@ export default function Shop() {
           <ProtectedComponent>
             <Link to={"/addproduct"}> Add product</Link>
             <Link to={"/upsertProduct"}>Check Product</Link>
+            <Link to={"/checkorders"}>Check Orders</Link>
           </ProtectedComponent>
         </div>
       </div>

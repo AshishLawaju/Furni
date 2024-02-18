@@ -19,8 +19,10 @@ import AddProduct from "./pages/AddProduct";
 import UpsertProduct from "./pages/UpsertProduct";
 import EditProduct from "./pages/EditProduct";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { addToCart, setCartRedux } from "./app/slice/cartSlice";
+import { setCartRedux } from "./app/slice/cartSlice";
 import CheckOut from "./pages/CheckOut";
+import Thankyou from "./pages/Thankyou";
+import CheckOrders from "./pages/CheckOrders";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -53,11 +55,16 @@ export default function App() {
         <Route path="signup" element={<SignUp />} />
         <Route path="cart">
           <Route path="" element={<Cart />} />
-          <Route path="checkout" element={<CheckOut />} />
+          <Route path="" element={<ProtectedRoute />}>
+            <Route path="checkout" element={<CheckOut />} />
+          </Route>
         </Route>
 
         <Route path="" element={<ProtectedRoute />}>
+        
+          <Route path="thankyou" element={<Thankyou />}></Route>
           <Route path="addproduct" element={<AddProduct />} />
+          <Route path="checkorders" element={<CheckOrders/>}></Route>
         </Route>
         <Route path="" element={<ProtectedRoute />}>
           <Route path="upsertproduct" element={<UpsertProduct />}></Route>
