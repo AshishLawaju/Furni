@@ -72,7 +72,7 @@ export default function Login() {
             Password
           </label>
           <input
-            className="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            className="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             id="password"
             type="password"
             name="password"
@@ -80,13 +80,11 @@ export default function Login() {
             onChange={handleInput}
             value={user.password}
           />
-          <p className="text-xs italic text-red-500">
-            Please choose a password.
-          </p>
+          {/* <p className="text-xs italic ">Please choose a password.</p> */}
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+            className="focus:shadow-outline rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             type="submit"
           >
             Sign In
@@ -94,8 +92,6 @@ export default function Login() {
           <Link to={"/signup"}>create new account</Link>
         </div>
       </form>
-
-    
     </div>
   );
 }

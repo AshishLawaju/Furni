@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
-
+import axios from "axios";
 export default function Crafted() {
+  const [latestProduct, setLatestProduct] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/v1/product/")
+      .then((response) => {
+        const lastThreeData = response.data.slice(-3);
+
+        setLatestProduct(lastThreeData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
   return (
     <>
       <div className="container grid grid-cols-1 gap-4 py-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -19,9 +34,9 @@ export default function Crafted() {
             Explore
           </button>
         </div>
-        <ProductCart />
-        <ProductCart />
-        <ProductCart />
+        {latestProduct.map((el) => (
+          <ProductCart product={el} key={el} />
+        ))}
       </div>
     </>
   );

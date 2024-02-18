@@ -8,7 +8,12 @@ import chair3 from "../assets/chair3.png";
 import { FaRegCircle } from "react-icons/fa";
 import Testimonials from "../components/common/Testimonials";
 import BlogCard from "../components/common/BlogCard";
+
+
 export default function Home() {
+
+  
+
   return (
     <>
       <Hero title={"Modern Interior Design Studio"} />

@@ -6,7 +6,7 @@ import WhyUs from "../components/common/WhyUs";
 export default function AboutUs() {
   return (
     <>
-      <Hero />
+      <Hero title={"About us"} />
       <WhyUs />
       {/* Our team */}
       <div className="bg-[#EFF2F1]">

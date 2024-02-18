@@ -5,7 +5,7 @@ import Testimonials from "../components/common/Testimonials";
 export default function Service() {
   return (
     <>
-      <Hero />
+      <Hero title={"Services"} />
       <Crafted />
       <Testimonials />
     </>

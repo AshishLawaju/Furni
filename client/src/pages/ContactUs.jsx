@@ -6,7 +6,7 @@ import { FaPhone } from "react-icons/fa6";
 export default function ContactUs() {
   return (
     <>
-      <Hero />
+      <Hero title={"Contact"} />
       <div className="bg-[#EFF2F1]">
         <div className="mx-auto pt-32 md:w-[55%]">
           <div className="flex justify-between">

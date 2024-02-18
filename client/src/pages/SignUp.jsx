@@ -83,20 +83,17 @@ export default function SignUp() {
             Password
           </label>
           <input
-            className="focus:shadow-outline mb-3 w-full appearance-none rounded border border-red-500 px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+            className="focus:shadow-outline mb-3 w-full appearance-none rounded border  px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="password"
             name="password"
             onChange={handleInput}
             value={registerUser.password}
             placeholder="******************"
           />
-          <p className="text-xs italic text-red-500">
-            Please choose a password.
-          </p>
         </div>
         <div className="flex items-center justify-between">
           <button
-            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+            className="focus:shadow-outline rounded bg-black px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             type="submit"
           >
             Sign Up
