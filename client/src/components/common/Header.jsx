@@ -7,6 +7,7 @@ import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../app/slice/userSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   //   const normalClass = "hover:border-b-4 hover: pb-2";
@@ -14,11 +15,15 @@ export default function Header() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const cart = useSelector((store) => store.cart.value);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-primary py-3">
       <div className="container flex h-full flex-wrap  items-center justify-between  text-white">
-        <div className="text-3xl font-semibold  ">
+        <div
+          className="cursor-pointer text-3xl  font-semibold"
+          onClick={() => navigate("/")}
+        >
           Furni<span className="text-slate-400 ">.</span>
         </div>
         <RxHamburgerMenu

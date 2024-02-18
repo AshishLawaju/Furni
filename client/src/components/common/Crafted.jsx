@@ -18,7 +18,7 @@ export default function Crafted() {
   }, []);
   return (
     <>
-      <div className="container grid grid-cols-1 gap-4 py-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="container grid grid-cols-1 place-content-center place-items-center gap-6 py-24 md:grid-cols-2 lg:grid-cols-4">
         <div className="flex max-w-[290px] flex-col gap-6">
           <p className="text-3xl font-semibold">
             Crafted with excellent material.

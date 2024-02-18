@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import heroImage from "../../assets/hero.png";
+import { useNavigate } from "react-router-dom";
 export default function Hero({ title }) {
+  const navigate = useNavigate();
   return (
     <div className="bg-primary   ">
       <div className=" container flex flex-col justify-between gap-10 lg:flex-row lg:gap-20">
@@ -13,8 +15,16 @@ export default function Hero({ title }) {
             velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
           </p>
           <div className="flex gap-2">
-            <button className="btn bg-secondary">Shop Now</button>
-            <button className="btn border-2 border-slate-400 text-white ">
+            <button
+              className="btn bg-secondary "
+              onClick={() => navigate("/shop")}
+            >
+              Shop Now
+            </button>
+            <button
+              className="btn border-2 border-slate-400 text-white "
+              onClick={() => navigate("/")}
+            >
               Explore
             </button>
           </div>

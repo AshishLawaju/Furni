@@ -16,7 +16,7 @@ function SampleNextArrow(props) {
       style={{ ...style, display: "block" }}
       onClick={onClick}
     >
-      <IoIosArrowDroprightCircle className=" cursor-pointer  text-4xl text-[#DDE2E0] outline-none" />
+      <IoIosArrowDroprightCircle className=" hidden cursor-pointer text-4xl  text-[#DDE2E0] outline-none lg:block" />
     </div>
   );
 }
@@ -29,7 +29,7 @@ function SamplePrevArrow(props) {
       style={{ ...style, display: "block" }}
       onClick={onClick}
     >
-      <IoIosArrowDropleftCircle className=" cursor-pointer  text-4xl text-[#DDE2E0] outline-none" />
+      <IoIosArrowDropleftCircle className="hidden cursor-pointer text-4xl  text-[#DDE2E0] outline-none lg:block" />
     </div>
   );
 }
@@ -59,10 +59,10 @@ export default function Testimonials() {
     ),
   };
   return (
-    <div className="pb-40 pt-24">
+    <div className="w-full pb-40 pt-24">
       <p className="mb-9 text-center text-3xl font-semibold">Testimonials</p>
       <Slider className="container" {...settings}>
-        <div className="   w-full    md:px-32">
+        <div className="   w-[90%]    md:px-32">
           <p className="mb-9 text-center text-lg text-slate-600">
             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
             quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam

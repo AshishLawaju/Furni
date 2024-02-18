@@ -9,26 +9,22 @@ import { FaRegCircle } from "react-icons/fa";
 import Testimonials from "../components/common/Testimonials";
 import BlogCard from "../components/common/BlogCard";
 
-
 export default function Home() {
-
-  
-
   return (
     <>
       <Hero title={"Modern Interior Design Studio"} />
       <Crafted />
       <WhyUs />
       <div className="bg-back">
-        <div className=" container flex gap-12">
-          <div className="relative flex gap-4">
+        <div className=" container flex flex-col gap-12 lg:flex-row">
+          <div className="relative flex gap-4 ">
             <div className="max-w-[500px]">
               <img src={help2} alt="" className="rounded-3xl" />
             </div>
             <div className="max-w-[220px]">
               <img src={help3} alt="" className="rounded-3xl" />
             </div>
-            <div className="absolute -bottom-24 right-0 max-w-[390px]">
+            <div className="absolute  bottom-0 right-0 max-w-[170px] sm:max-w-[240px] md:max-w-[300px] lg:max-w-[250px] xl:max-w-[300px]">
               <img src={help1} alt="" className="rounded-3xl" />
             </div>
           </div>
@@ -65,7 +61,7 @@ export default function Home() {
       */}
 
       <div className="bg-back py-32">
-        <div className="container grid grid-cols-3 place-content-center place-items-center gap-6">
+        <div className="container grid grid-cols-1  place-content-center place-items-center gap-6 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map(() => (
             <div className="flex items-center gap-4">
               <div className="ab h-[100px] w-[100px] rounded-3xl bg-[#DCE5E4]">
@@ -91,7 +87,7 @@ export default function Home() {
       <div className="bg-back py-32 pb-48">
         <div className="container">
           <p className="mb-6 text-3xl">Recent Blog</p>
-          <div className="grid grid-cols-3 place-content-center gap-8">
+          <div className="grid grid-cols-1 place-content-center gap-8  md:grid-cols-2 lg:grid-cols-3">
             <BlogCard />
             <BlogCard />
             <BlogCard />
