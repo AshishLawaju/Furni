@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setuser as setReduxUser } from "../app/slice/userSlice";
+import Paginate from "./Paginate";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ export default function Login() {
   }
 
   return (
+    <>
     <div className="container mx-auto max-w-[400px] py-32">
       <form
         onSubmit={handleSubmit}
@@ -93,5 +95,9 @@ export default function Login() {
         </div>
       </form>
     </div>
+
+    <Paginate/>
+    </>
+
   );
 }

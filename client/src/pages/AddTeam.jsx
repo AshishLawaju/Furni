@@ -76,7 +76,19 @@ export default function AddTeam() {
   }
 
   function handleFile(e) {
-    addTeam.profile = e.target.files[0];
+    let name = e.target.name;
+    let value = e.target.files[0];
+   
+   setAddTeam(
+    {
+        ...addTeam,
+        [name]: value,
+    }
+   )
+    
+
+    
+    // addTeam.profile = e.target.files[0];/* yo line */
 
     // productData.profile = e.target.files[0];
   }
