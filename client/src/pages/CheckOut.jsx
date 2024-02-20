@@ -43,6 +43,7 @@ export default function CheckOut() {
       )
       .then(() => {
         navigate("/thankyou");
+        //store bata lau ne ani quantity ra id bata api hit garne
         dispatch(clearCart());
       });
 

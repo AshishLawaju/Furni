@@ -6,6 +6,7 @@ import {
   getProduct,
   getSingleProduct,
   updateProduct,
+  updateStock,
 } from "../controller/product.contorller.js";
 import { upload } from "../middleware/multer.middleware.js";
 import { auth } from "../middleware/auth.middleware.js";
@@ -35,4 +36,5 @@ router.route("/:_id").get(getSingleProduct);
 router.route("/").get(getProduct);
 router.route("/:_id").put(updateProduct);
 router.route("/:_id").delete(delectProduct);
+router.route("/stock/:_id/:quantity").put(updateStock)
 export default router;

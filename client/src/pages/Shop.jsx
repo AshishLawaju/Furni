@@ -32,6 +32,7 @@ export default function Shop() {
             <Link to={"/addproduct"}> Add product</Link>
             <Link to={"/upsertProduct"}>Check Product</Link>
             <Link to={"/checkorders"}>Check Orders</Link>
+            <Link to={"/addTeam"}>Add Team</Link>
           </ProtectedComponent>
         </div>
       </div>

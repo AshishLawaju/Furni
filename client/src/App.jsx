@@ -25,6 +25,7 @@ import Thankyou from "./pages/Thankyou";
 import CheckOrders from "./pages/CheckOrders";
 import Blog from "./pages/Blog";
 import SingleProduct from "./pages/SingleProduct";
+import AddTeam from "./pages/AddTeam";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -62,7 +63,7 @@ export default function App() {
             <Route path="checkout" element={<CheckOut />} />
           </Route>
         </Route>
-<Route path="product/:slug" element={<SingleProduct/>}></Route>
+        <Route path="product/:slug" element={<SingleProduct />}></Route>
         <Route path="" element={<ProtectedRoute />}>
           <Route path="thankyou" element={<Thankyou />}></Route>
           <Route path="addproduct" element={<AddProduct />} />
@@ -70,6 +71,7 @@ export default function App() {
         </Route>
         <Route path="" element={<ProtectedRoute />}>
           <Route path="upsertproduct" element={<UpsertProduct />}></Route>
+          <Route path="addTeam" element = {<AddTeam/>}/>
         </Route>
         <Route path="upsertproduct/:slug" element={<EditProduct />} />
       </Routes>

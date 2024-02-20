@@ -89,7 +89,7 @@ export default function AddProduct() {
 
     formData.append("profileImage", productData.profile);
     formData.append("title", productData.title);
-    console.log(productData.profile);
+    // console.log(productData.profile);
     axios.post("http://localhost:8000/api/v1/product/upload", formData, {
       headers: {
         // Authorization: `Bearer ${access_token}`,
@@ -98,7 +98,7 @@ export default function AddProduct() {
         enctype: "multipart/form-data",
       },
     });
-    console.log(formData);
+    // console.log(formData);
   }
 
   function handleUpload(event) {

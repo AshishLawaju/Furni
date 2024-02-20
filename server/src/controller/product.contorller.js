@@ -16,11 +16,11 @@ const addProduct = async (req, res, next) => {
     }
     const { name, price, inStock, description, categories, brands } = req.body;
 
-    console.log({ "req.files": req.file });
-    console.log({ "req.body": req.body });
+    /* console.log({ "req.files": req.file });
+    console.log({ "req.body": req.body }); */
     // const imageLocalPath = req.files["profileImage"][0].path;
     const imageLocalPath = req.file.path;
-    console.log(imageLocalPath);
+    // console.log(imageLocalPath);
     let imageUpload = await uploadOnCloudinary(imageLocalPath);
     const photo = imageUpload.url;
     const product = await Product.create({
@@ -68,7 +68,6 @@ const getSingleProduct = async (req, res, next) => {
 
 const updateProduct = async (req, res, next) => {
   try {
-
     const token = req.header("Authorization");
     const decodedToken = jwt.verify(token, "shhhhh");
     const user = await User.findById(decodedToken?.id).select("-password");
@@ -97,7 +96,6 @@ const updateProduct = async (req, res, next) => {
 };
 const delectProduct = async (req, res, next) => {
   try {
-
     const token = req.header("Authorization");
     const decodedToken = jwt.verify(token, "shhhhh");
     const user = await User.findById(decodedToken?.id).select("-password");
@@ -117,10 +115,40 @@ const delectProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+const updateStock = async (req, res, next) => {
+  try {
+    const token = req.header("Authorization");
+    const decodedToken = jwt.verify(token, "shhhhh");
+    const user = await User.findById(decodedToken?.id).select("-password");
+
+    if (!user) {
+      res.status(403).json("no user found!");
+    }
+
+    const { inStock } = await Product.findById(req.params);
+    // res.status(201).json(req.params);
+    // res.json(typeof inStock);
+
+    let newInStock = parseInt(inStock) - parseInt(req.params.quantity);
+
+    const product = await Product.findByIdAndUpdate(req.params, {
+      inStock: newInStock,
+    });
+    if (!product) {
+      res.status(400).json("no product found");
+    }
+    res.status(200).json(" stock updated !");
+  } catch (error) {
+    next(error);
+  }
+};
+
 export {
   addProduct,
   getSingleProduct,
   getProduct,
   updateProduct,
   delectProduct,
+  updateStock,
 };
