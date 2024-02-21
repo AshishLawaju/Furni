@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ProductCart from "./ProductCart";
 import axios from "axios";
 export default function Crafted() {

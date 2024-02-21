@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate"
-import userSlice from "../app/slice/userSlice";
 export default function Paginate() {
  const [posts , setPosts] = useState([])
  const [pageCount,setPageCount] = useState(0)
@@ -14,6 +13,7 @@ export default function Paginate() {
   .catch(err=>console.log(err))
 
  },[])
+ 
  useEffect(()=>{
   
     
@@ -21,11 +21,11 @@ export default function Paginate() {
     // (This could be items from props; or items loaded in a local state
     // from an API endpoint with useEffect and useState)
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(posts.slice(itemOffset, endOffset))
     setPageCount(Math.ceil(posts.length / itemsPerPage))
     
-
+    
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     // Invoke when user click to request another page.
    
         

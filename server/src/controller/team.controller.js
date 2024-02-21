@@ -27,4 +27,18 @@ const addTeam = async (req, res, next) => {
   }
 };
 
-export { addTeam };
+
+const getTeam = async(req,res,next) =>{
+  try {
+    const members = await  Team.find()
+
+    if(!members){
+      return res.status(500).json("member failed ")
+    }
+    res.status(200).json(members)
+  } catch (error) {
+    next(error)
+    
+  }
+}
+export { addTeam ,getTeam};
